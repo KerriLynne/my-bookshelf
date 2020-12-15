@@ -14,11 +14,12 @@ class BookIndex extends React.Component {
         this.props.getBooks();
     }
     render() {
+        console.log(this.props.books)
         return (
             <div>
                 <h1>Books</h1>
                 {this.props.books.map((book) => (
-                <BookListItem book={book} />
+                <BookListItem key={book.id} book={book} />
                 ))}
             </div>
         );

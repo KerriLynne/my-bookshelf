@@ -25,3 +25,14 @@ export const createBook = (data) => {
             );
     }
 }
+
+export const deleteBook = (bookId, history) => {
+    return (dispatch) => {
+        fetch(`http://localhost:3001/books/${bookId}`, {
+            method: 'DELETE',
+        })
+            .then((res) => res.json())
+            .then(({ id }) => { dispatch({ type: 'DELETE_BOOK', payload: id })
+        history.push('/books')});
+    };
+};

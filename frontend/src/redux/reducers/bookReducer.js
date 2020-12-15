@@ -10,6 +10,9 @@ function bookReducer(state = { all: [] }, action) {
         case "CREATE_BOOK_SUCCESS":
             return { ...state, all: [...state.all, action.payload] }
 
+        case "DELETE_BOOK":
+            return { ...state, all: state.all.filter(book => book.id !== action.payload) }
+
         default:
             return state;
     }
