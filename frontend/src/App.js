@@ -5,6 +5,7 @@ import Home from './components/Home'
 import BookIndex from './components/BookIndex'
 import BookForm from './components/BookForm'
 import Nav from './components/Nav'
+import BookShow from './components/BookShow'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/" component={Home}/>
           <Route exact path="/books" component={BookIndex}/>
           <Route path="/books/new" component={BookForm}/>
+          <Route path="/books/${book.id}" component={BookShow}/>
         </Switch>
       </Router>
 

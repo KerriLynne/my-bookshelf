@@ -14,6 +14,9 @@ export default function Home() {
                 <li>
                     <Link to='/books/new'> Add a Book </Link>
                 </li>
+                <li>
+                    <Link to='/books/bookshelf'> My Bookshelf </Link>
+                </li>
             </ul>
         </div>
     )

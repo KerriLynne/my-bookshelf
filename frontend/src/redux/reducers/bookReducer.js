@@ -13,6 +13,9 @@ function bookReducer(state = { all: [] }, action) {
         case "DELETE_BOOK":
             return { ...state, all: state.all.filter(book => book.id !== action.payload) }
 
+        case "SHOW_BOOK":
+            return { ...state, all: state.all.filter(book => book.id === action.payload) }
+
         default:
             return state;
     }

@@ -11,7 +11,7 @@ function BookListItem({ book, deleteBook }) {
     return (
         <div>
             {book.title} 
-            <FaRegTrashAlt onClick={submitDelete} style={{curser: "pointer"}}/>
+            <button><FaRegTrashAlt onClick={submitDelete} style={{curser: "pointer"}}/></button>
         </div>
     );
 }
