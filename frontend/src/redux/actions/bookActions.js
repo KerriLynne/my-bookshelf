@@ -33,15 +33,16 @@ export const deleteBook = (bookId, history) => {
         })
             .then((res) => res.json())
             .then(({ id }) => { dispatch({ type: 'DELETE_BOOK', payload: id })
-        history.push('/books')});
-    };
-};
-
-export const showBook = (bookId) => {
-    return (dispatch) => {
-        fetch(`http://localhost:3001/books/${bookId}`)
-            .then((res) => res.json())
-            .then(({ id }) => { dispatch({ type: 'SHOW_BOOK', payload: id })
+        // history.push('/books')
         });
     };
 };
+
+// export const showBook = (bookId) => {
+//     return (dispatch) => {
+//         fetch(`http://localhost:3001/books/${bookId}`)
+//             .then((res) => res.json())
+//             .then(({ id }) => { dispatch({ type: 'SHOW_BOOK', payload: id })
+//         });
+//     };
+// };

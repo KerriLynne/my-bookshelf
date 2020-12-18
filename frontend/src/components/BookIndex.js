@@ -3,7 +3,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { getBooks } from "../redux/actions/bookActions";
 import BookListItem from "./BookListItem";
-import { Link } from 'react-router-dom'
 
 //turned into a class to take advantage of a lifecycle method bc we're working with asynchronous and fetch- otherwise could have stayed fucntional component.
 //once we cover hooks we won't need this to be a class component?
@@ -19,11 +18,9 @@ class BookIndex extends React.Component {
         return (
             <div>
                 <h1>Books</h1>
-                <Link to='/books/${book.id}'>
                 {this.props.books.map((book) => (
                 <BookListItem key={book.id} book={book} />
                 ))}
-                </Link>
             </div>
         );
     }

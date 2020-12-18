@@ -1,59 +1,57 @@
-  
-import React from "react";
-import { connect } from "react-redux";
-// import { getBooks } from "../redux/actions/bookActions";
-import { showBook } from "../redux/actions/bookActions";
-import Book from "./Book";
-// import BookListItem from "./BookListItem";
-// import BookIndex from "./BookIndex";
-// import { Link } from 'react-router-dom'
+//add function to get book by ID here?
 
-//turned into a class to take advantage of a lifecycle method bc we're working with asynchronous and fetch- otherwise could have stayed fucntional component.
-//once we cover hooks we won't need this to be a class component?
+import React from 'react'
+// import { FaRegTrashAlt } from "react-icons/fa";
+// import { deleteBook } from "../redux/actions/bookActions";
+import { connect } from "react-redux"
+// import { getBooks } from "../redux/actions/bookActions";
+// import { showBook } from "../redux/actions/bookActions";
+// import { useParams } from "react-router-dom";
+// import { BsArrowRepeat } from "react-icons/bs";
+// import { FiClock } from "react-icons/fi";
+// import { AiOutlineCheckCircle } from "react-icons/ai";
 
 class BookShow extends React.Component {
-    //where we make asynchronous requests
-    //now BookIndex has access to getBooks as a prop which will then kick off the API request to the backend
-    componentDidMount() {
-        this.props.showBook();
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {book_id: props.match.params.id}
+    // }
     render() {
-        console.log(this.props.book)
         return (
-            <div>
-                <h1>Books</h1>
-                {this.props.book.map((book) => (
-                <Book key={book.id} book={book} />
-                ))}
-            </div>
-        );
+            <h1>Book {this.props.book.title} </h1>
+        )
     }
 }
 
-const mapStateToProps = ({ books }) => {
+const mapStateToProps = ({books}, ownProps) => {
     //destructiure books and return an object where book is the key but books.all is the value 
     //(book index receoves a prop called books which will be equal to books.all and will be available to us as a prop)
     return {
-        book: book.id,
+        book: books.all.find(book => book.id == ownProps.match.params.id)
     };
 };
 
-/* //invoke my action that I created (added import at top from getBooks)
-//passing this action (getBooks) into BookIndex as a prop 
-
-//below is saying- give BookIndex a prop nameed gegtBooks and map that prop to the getBooks action that we're importing.  It will automatically dispatch that action once we invoke this method.
-//whenever it gets executed it will dispatch getBooks, once it dispatches redux thunk is going to inspect and determine is that action returning a function or an object.  If object go and send that object over to the reducer.
-//if returning a function, we know that we need to pause dispatching until we get what3ever response we're waiting for. */
-
-export default connect(mapStateToProps, { showBook })(BookShow);
-
-// import { connect } from 'react-redux'
-// import ReactComponent from './react_component' // import a React component
-
-// const mapStateToProps = (state) => {
-//   return {
-//     heroes: state.data // this will return the heroes data directly into your React components so you don't need to fetch it
-//   }
+// function BookCategory({ book, showBook }) {
+//     // const submitProgress = () => {
+//     //     // debugger
+//     //     inProgress(book.id, this.props.history);
+//     // }
+//     //     const submitForLater = () => {
+//     //     // debugger
+//     //     forLater(book.id, this.props.history);
+//     // }
+//     //     const submitCompleted = () => {
+//     //     // debugger
+//     //     completed(book.id, this.props.history);
+//     // }
+//     return (
+//         <div>
+//             {book.title} - {book.author} - {book.genre}
+//             {/* <button><BsArrowRepeat onClick={submitProgress} style={{curser: "pointer"}}/>In Progress</button>
+//             <button><FiClock onClick={submitForLater} style={{curser: "pointer"}}/>For Later</button>
+//             <button><AiOutlineCheckCircle onClick={submitCompleted} style={{curser: "pointer"}}/>Completed</button> */}
+//         </div>
+//     );
 // }
 
-// export default connect(mapStateToProps)(ReactComponent) // decorate React component with Redux state
+export default connect(mapStateToProps)(BookShow)
