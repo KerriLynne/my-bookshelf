@@ -1,6 +1,7 @@
 
 //mechanism to update the book reducer/ book store to the array of books that we get back from our backend
 function bookReducer(state = { all: [] }, action) {
+    console.log("reducer was called" + action.type)
     switch(action.type) {
         case "FETCH_BOOKS_SUCCESS":
             //think of spread operator as restructuring and overriding books property from state to maintain state only 
@@ -14,7 +15,12 @@ function bookReducer(state = { all: [] }, action) {
             return { ...state, all: state.all.filter(book => book.id !== action.payload) }
 
         case "SHOW_BOOK":
-            return { ...state, all: state.all.filter(book => book.id === action.payload) }
+            // const books = state.all.filter(book => book.id == action.payload)
+            // console.log("showbook reducer was called" + books.length)
+            // console.log("showbook reducer was called" + state.all.length)
+            // return { ...state, all: state.all.filter(book => book.id == action.payload) }
+            // return { ...state, all: [...state.all], selected: state.all.filter(book => book.id == action.payload)};
+            return { ...state, all: [...state.all], selected: action.payload};
 
         default:
             return state;

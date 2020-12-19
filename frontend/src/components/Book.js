@@ -4,7 +4,7 @@ import React from 'react'
 import { connect } from "react-redux"
 // import { Link } from 'react-router-dom'
 
-function Book({ book }) {
+function Book( book ) {
 //     const submitDelete = () => {
 //         // debugger
 //         deleteBook(book.id);

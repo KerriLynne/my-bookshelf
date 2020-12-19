@@ -39,10 +39,13 @@ export const deleteBook = (bookId, history) => {
 };
 
 export const showBook = (bookId) => {
+    console.log("showbook action called")
     return (dispatch) => {
         fetch(`http://localhost:3001/books/${bookId}`)
             .then((res) => res.json())
-            .then(({ id }) => { dispatch({ type: 'SHOW_BOOK', payload: id })
+            .then((book) => { 
+                console.log("showbook action called")
+                dispatch({ type: 'SHOW_BOOK', payload: book })
         });
     };
 };

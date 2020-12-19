@@ -1,45 +1,57 @@
 //add function to get book by ID here?
 
-import React from 'react'
-// import { FaRegTrashAlt } from "react-icons/fa";
-// import { deleteBook } from "../redux/actions/bookActions";
-import { connect } from "react-redux"
 import { showBook } from "../redux/actions/bookActions";
 import Book from './Book';
-// import Book from "./Book";
-// import { showBook } from "../redux/actions/bookActions";
-// import { useParams } from "react-router-dom";
+import React from "react";
+import { connect } from "react-redux";
 // import { BsArrowRepeat } from "react-icons/bs";
 // import { FiClock } from "react-icons/fi";
 // import { AiOutlineCheckCircle } from "react-icons/ai";
 
 class BookShow extends React.Component {
+    // constructor() {
+    //     super();
+    //     this.props.showBook(this.props.match.params.id);
+    // }
     componentDidMount() {
-        this.props.showBook();
+        console.log("component did mount was called")
+        this.props.showBook(this.props.match.params.id);
     }
+
+    // componentDidUpdate() {
+    //     this.props.showBook(this.props.match.params.id);
+    // }
     // componentDidMount() {
     //     this.props.getBooks();
     // }
     render() {
-        // console.log(this.props.books)
+        console.log(this.props.book)
+        if (!this.props.book) {
+            return (
+                <div>
+                <h1>Book</h1>
+                    {/* <h1>{this.props.book[0].title}</h1>
+                    <h1>{this.props.book[0].author}</h1>
+                    <h1>{this.props.book[0].genre}</h1> */}
+                </div> 
+            )
+        }
         return (
             <div>
             <h1>Book</h1>
-            {this.props.books.map((book) => (
-                <Book key={book.id} book={book} />
-            ))}
-            </div>
-            // <h1>Book {this.props.book.title} </h1>
-            // // <Book />
+                <h1>{this.props.book.title}</h1>
+                <h1>{this.props.book.author}</h1>
+                <h1>{this.props.book.genre}</h1>
+            </div> 
         )
     }
 }
 
-const mapStateToProps = ( {books}, ownProps) => {
+const mapStateToProps = ({ books }) => {
     //destructiure books and return an object where book is the key but books.all is the value 
     //(book index receoves a prop called books which will be equal to books.all and will be available to us as a prop)
     return {
-        book: books.all.find(book => book.id == ownProps.match.params.id)
+        book: books.selected,
     };
 };
 
@@ -66,4 +78,4 @@ const mapStateToProps = ( {books}, ownProps) => {
 //     );
 // }
 
-export default connect(mapStateToProps, {showBook})(BookShow)
+export default connect(mapStateToProps, { showBook } )(BookShow);
