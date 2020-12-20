@@ -21,3 +21,7 @@
 30.times do
     Book.create(title: Faker::Book.title, author: Faker::Book.author, genre: Faker::Book.genre, bookshelf_id: rand(3) + 1)
 end
+
+Bookshelf.create(name: "In Progress")
+Bookshelf.create(name: "For Later")
+Bookshelf.create(name: "Completed")

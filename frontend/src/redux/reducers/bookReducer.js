@@ -22,6 +22,9 @@ function bookReducer(state = { all: [] }, action) {
             // return { ...state, all: [...state.all], selected: state.all.filter(book => book.id == action.payload)};
             return { ...state, all: [...state.all], selected: action.payload};
 
+        case "SHOW_BOOKSHELF":
+            return { ...state, bookshelves: action.payload};
+
         default:
             return state;
     }

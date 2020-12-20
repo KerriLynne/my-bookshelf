@@ -49,3 +49,16 @@ export const showBook = (bookId) => {
         });
     };
 };
+
+export const showBookshelf = () => {
+    console.log("showbookshelf action called")
+    return (dispatch) => {
+        fetch(`http://localhost:3001/bookshelves`)
+            .then((res) => res.json())
+            .then((bookshelves) => { 
+                // console.log("showbookshelf action called")
+                dispatch({ type: 'SHOW_BOOKSHELF', payload: bookshelves })
+                //dispatch will send to our reducer
+        });
+    };
+};

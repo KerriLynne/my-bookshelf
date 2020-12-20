@@ -1,7 +1,7 @@
 //add function to get book by ID here?
 
 import { showBook } from "../redux/actions/bookActions";
-import Book from './Book';
+// import Book from './Book';
 import React from "react";
 import { connect } from "react-redux";
 // import { BsArrowRepeat } from "react-icons/bs";
@@ -30,18 +30,13 @@ class BookShow extends React.Component {
             return (
                 <div>
                 <h1>Book</h1>
-                    {/* <h1>{this.props.book[0].title}</h1>
-                    <h1>{this.props.book[0].author}</h1>
-                    <h1>{this.props.book[0].genre}</h1> */}
                 </div> 
             )
         }
         return (
             <div>
-            <h1>Book</h1>
-                <h1>{this.props.book.title}</h1>
-                <h1>{this.props.book.author}</h1>
-                <h1>{this.props.book.genre}</h1>
+            <h1>You Selected</h1>
+                <h3>Title: {this.props.book.title}</h3> - <h3>Author: {this.props.book.author}</h3> - <h3>Genre: {this.props.book.genre}</h3>
             </div> 
         )
     }
