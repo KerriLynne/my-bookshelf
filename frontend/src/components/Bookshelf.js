@@ -52,13 +52,14 @@ class Bookshelf extends React.Component {
             <div>
                 <h1 className="text-center title">Your Bookshelf</h1>
                 {/* {this.props.bookshelves.length} */}
-                {this.props.bookshelves.map((bookshelf) => (
                 <div class="row">
-                <div class="col-sm-4 col-sm-offset-2">   
+                {this.props.bookshelves.map((bookshelf) => (
+                /* <div class="col-sm-4 col-sm-offset-2">    */
+                <div class="col-sm-4">   
                 <BookshelfItem key={bookshelf.id} bookshelf={bookshelf} />
                 </div>
-                </div>
                 ))}
+                </div>
             </div>
         )
     }

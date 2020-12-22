@@ -1,12 +1,12 @@
 //add function to get book by ID here?
 
-import { showBook } from "../redux/actions/bookActions";
+import { showBook, getBookshelfList, updateBook } from "../redux/actions/bookActions";
 // import Book from './Book';
 import React from "react";
 import { connect } from "react-redux";
-// import { BsArrowRepeat } from "react-icons/bs";
-// import { FiClock } from "react-icons/fi";
-// import { AiOutlineCheckCircle } from "react-icons/ai";
+import { BsArrowRepeat } from "react-icons/bs";
+import { FiClock } from "react-icons/fi";
+import { AiOutlineCheckCircle } from "react-icons/ai";
 
 class BookShow extends React.Component {
     // constructor() {
@@ -16,6 +16,26 @@ class BookShow extends React.Component {
     componentDidMount() {
         console.log("component did mount was called")
         this.props.showBook(this.props.match.params.id);
+        this.props.getBookshelfList();
+    }
+
+    bookshelfIcon(bookshelfName) {
+        switch (bookshelfName) {
+            case "In Progress":
+            return (
+                <BsArrowRepeat style={{curser: "pointer"}}/>
+            )
+            case "For Later":
+                return (
+                <FiClock style={{curser: "pointer"}}/>
+                )
+            case "Completed":
+                return (
+                <AiOutlineCheckCircle style={{curser: "pointer"}}/>
+                )        
+            default:
+                break;
+        }
     }
 
     // componentDidUpdate() {
@@ -24,6 +44,8 @@ class BookShow extends React.Component {
     // componentDidMount() {
     //     this.props.getBooks();
     // }
+        // const moveBooktoBookshelf = updateBook(this.props.book.id, {bookshelf_id: bookshelf.id})
+
     render() {
         console.log(this.props.book)
         if (!this.props.book) {
@@ -37,6 +59,17 @@ class BookShow extends React.Component {
             <div>
             <h1 className="title">You Selected</h1>
                 <h3>Title: {this.props.book.title}</h3> - <h3>Author: {this.props.book.author}</h3> - <h3>Genre: {this.props.book.genre}</h3>
+                 {this.props.book.bookshelf_id && this.props.bookshelfList && 
+                    <h3>On Your {this.props.bookshelfList.find((bookshelf) => bookshelf.id === this.props.book.bookshelf_id).name} Bookshelf
+                    <button onClick={() => this.props.updateBook(this.props.book.id, {bookshelf_id: ""})}> Remove </button></h3>
+                }
+
+                {(this.props.bookshelfList || [] ).map((bookshelf) => ( bookshelf.id !== this.props.book.bookshelf_id && 
+                    <button onClick={() => this.props.updateBook(this.props.book.id, {bookshelf_id: bookshelf.id})}> {this.bookshelfIcon(bookshelf.name)} Move To {bookshelf.name}</button>
+                ))}
+             {/* 
+             <button><FiClock onClick={submitForLater} style={{curser: "pointer"}}/>For Later</button>
+             <button><AiOutlineCheckCircle onClick={submitCompleted} style={{curser: "pointer"}}/>Completed</button> */}
             </div> 
         )
     }
@@ -47,6 +80,7 @@ const mapStateToProps = ({ books }) => {
     //(book index receoves a prop called books which will be equal to books.all and will be available to us as a prop)
     return {
         book: books.selected,
+        bookshelfList: books.bookshelfList
     };
 };
 
@@ -73,4 +107,4 @@ const mapStateToProps = ({ books }) => {
 //     );
 // }
 
-export default connect(mapStateToProps, { showBook } )(BookShow);
+export default connect(mapStateToProps, { showBook, getBookshelfList, updateBook } )(BookShow);

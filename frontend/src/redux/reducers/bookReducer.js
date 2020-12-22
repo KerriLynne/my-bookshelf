@@ -25,6 +25,12 @@ function bookReducer(state = { all: [] }, action) {
         case "SHOW_BOOKSHELF":
             return { ...state, bookshelves: action.payload};
 
+        case "GET_BOOKSHELF_LIST":
+            return { ...state, bookshelfList: action.payload};
+
+        case "UPDATE_BOOK":
+            return { ...state, selected: action.payload}
+
         default:
             return state;
     }

@@ -53,11 +53,43 @@ export const showBook = (bookId) => {
 export const showBookshelf = () => {
     console.log("showbookshelf action called")
     return (dispatch) => {
-        fetch(`http://localhost:3001/bookshelves`)
+        fetch(`http://localhost:3001/bookshelves?include_books=true`)
             .then((res) => res.json())
             .then((bookshelves) => { 
                 // console.log("showbookshelf action called")
                 dispatch({ type: 'SHOW_BOOKSHELF', payload: bookshelves })
+                //dispatch will send to our reducer
+        });
+    };
+};
+
+export const getBookshelfList = () => {
+    console.log("getbookshelflist action called")
+    return (dispatch) => {
+        fetch(`http://localhost:3001/bookshelves`)
+            .then((res) => res.json())
+            .then((bookshelves) => { 
+                // console.log("showbookshelf action called")
+                dispatch({ type: 'GET_BOOKSHELF_LIST', payload: bookshelves })
+                //dispatch will send to our reducer
+        });
+    };
+};
+
+export const updateBook = (bookId, params) => {
+    console.log("update book action called")
+    return (dispatch) => {
+        fetch(`http://localhost:3001/books/${bookId}`, {
+            method: "PUT", 
+            headers: {
+            'Content-Type': 'application/json',
+        },
+            body: JSON.stringify({ book: params })
+        })
+            .then((res) => res.json())
+            .then((book) => {
+                console.log("dispatch was called")
+                dispatch({ type: 'UPDATE_BOOK', payload: book })
                 //dispatch will send to our reducer
         });
     };
