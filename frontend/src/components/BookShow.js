@@ -35,7 +35,7 @@ class BookShow extends React.Component {
         }
         return (
             <div>
-            <h1>You Selected</h1>
+            <h1 className="title">You Selected</h1>
                 <h3>Title: {this.props.book.title}</h3> - <h3>Author: {this.props.book.author}</h3> - <h3>Genre: {this.props.book.genre}</h3>
             </div> 
         )

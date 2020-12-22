@@ -10,19 +10,20 @@ import Bookshelf from './components/Bookshelf'
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Nav />
-        <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/books" component={BookIndex}/>
-          <Route exact path="/books/new" component={BookForm}/>
-          <Route exact path="/books/bookshelf" component={Bookshelf}/>
-          <Route path="/books/:id" component={BookShow}/>
-        </Switch>
-      </Router>
+    // <div className="App">
+      <div className="theme-invert">
+        <Router>
+          <Nav />
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/books" component={BookIndex}/>
+            <Route exact path="/books/new" component={BookForm}/>
+            <Route exact path="/books/bookshelf" component={Bookshelf}/>
+            <Route path="/books/:id" component={BookShow}/>
+          </Switch>
+        </Router>
+        </div>
 
-    </div>
   );
 }
 

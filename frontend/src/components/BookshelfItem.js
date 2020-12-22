@@ -13,12 +13,12 @@ function BookshelfItem( { bookshelf } ) {
     return (
         <div>
             {/* <Link to={`/books/${book.id}`}> */}
-            <h1>{bookshelf.name}</h1>
+            <h1 className="subtitle">{bookshelf.name}</h1>
                 {bookshelf.books.map((book) => (
                 <BookshelfBookItem key={book.id} book={book} />
                 ))}
-             {/* </Link> */}
-             {/* <button><FaRegTrashAlt onClick={submitDelete} style={{curser: "pointer"}}/></button> */}
+              {/* </Link>  */}
+              {/* <button><FaRegTrashAlt onClick={submitDelete} style={{curser: "pointer"}}/></button>  */}
         </div>
     );
 }

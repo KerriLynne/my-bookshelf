@@ -12,7 +12,7 @@ function BookshelfBookItem( { book } ) {
     return (
         <div>
             {/* <Link to={`/books/${book.id}`}> */}
-            {book.title}
+            <p>{book.title}</p>
         </div>
     );
 }

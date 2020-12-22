@@ -23,7 +23,7 @@ class BookForm extends Component {
     render() {
         return (
             <div>
-                <h1>Add a book</h1>
+                <h1 className="title">Add a book</h1>
                 <form onSubmit={this.submit}>
                     Title:{" "} 
                     <input 
