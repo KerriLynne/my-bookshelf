@@ -15,11 +15,6 @@ function bookReducer(state = { all: [] }, action) {
             return { ...state, all: state.all.filter(book => book.id !== action.payload) }
 
         case "SHOW_BOOK":
-            // const books = state.all.filter(book => book.id == action.payload)
-            // console.log("showbook reducer was called" + books.length)
-            // console.log("showbook reducer was called" + state.all.length)
-            // return { ...state, all: state.all.filter(book => book.id == action.payload) }
-            // return { ...state, all: [...state.all], selected: state.all.filter(book => book.id == action.payload)};
             return { ...state, all: [...state.all], selected: action.payload};
 
         case "SHOW_BOOKSHELF":

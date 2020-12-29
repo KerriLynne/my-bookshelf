@@ -15,8 +15,7 @@ code {
 
 
 html {
-  background:#505D6E url(https://cdn.classyclosets.com/wp-content/uploads/2019/02/White-Merano-Doors-Bookshelf-800x600.jpg) no-repeat center center fixed; 
-  background: no-repeat center center fixed; 
+  background:#505D6E url(./images/bookshelf6.jpg) no-repeat center center fixed;
 	min-height:100%;
 	-webkit-background-size: cover;
 	   -moz-background-size: cover;
@@ -31,7 +30,8 @@ body {
 	-webkit-overflow-scrolling: touch;
 	line-height: 1.5em;
 	font-size:14px;
-	font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
+  /* font-family: 'Wire One', Helvetica, Arial, sans-serif; */
 	color:#fff;
 	color:rgba(255,255,255,.8); 
   font-weight: normal;
@@ -332,7 +332,8 @@ a:hover, a:active { color:#fff; text-decoration: underline; }
 	color:rgba(0,0,0,.8); 
  }
 .theme-invert a { 
-	color:#000;
+  /* color:#000; */
+  color:whitesmoke;
 }
 .theme-invert .btn {
 	color:rgba(255,255,255,.8);
@@ -347,23 +348,26 @@ a:hover, a:active { color:#fff; text-decoration: underline; }
 	color:#000
 }
 .theme-invert .navbar-toggle {
-	background: rgba(0, 0, 0, 0.12);
+	/* background: rgba(0, 0, 0, 0.12); */
 }
 .theme-invert .navbar-toggle .icon-bar {
-  background: #333;
+  /* background: #333; */
 }
 .theme-invert .mainmenu .dropdown-menu a { 
-	color:#000;
+  /* color:#000; */
+  color:whitesmoke;
 }
 .theme-invert .mainmenu .dropdown-menu a:hover { 
 	background:rgba(0,0,0,.1);
-	color:#000;
+  /* color:#000; */
+  color:whitesmoke;
 }
 
 .theme-invert .title,
 .theme-invert .subtitle,
 .theme-invert .tagline { 
-	color:#222222; 
+  /* color:#222222;  */
+  color:whitesmoke; 
 }
 
 .theme-invert .btn-default {
@@ -394,4 +398,67 @@ a:hover, a:active { color:#fff; text-decoration: underline; }
 	color: inherit;
 }
 
+
+.hidden {
+  display: none;
+}
+/* #added in  */
+html, body, .container-fluid {
+  width: 100%;
+  height: 100%;
+}
+
+.white{
+  width: 50px;
+  height: .5em;
+  border: 0; border-top: 1px solid #ffffff;
+}
+
+.container-fluid,
+.overlay:before {
+  background: url(./images/bookshelf6.jpg) no-repeat fixed 0 0 / cover;
+}
+
+.card {
+  color: gray;
+}
+
+.container-fluid {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.overlay {
+  margin: 0 auto;
+  max-width: 768px;
+  overflow: hidden;
+  padding: 50px; /*4rem 0*/
+  position: fixed; /*was relative */
+  color: white;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  z-index: 0;
+  overflow-y: scroll; /*auto*/
+  top: 0; right: 0; bottom: 0; left: 0;
+}
+
+.overlay:before {
+  content: '';
+  filter: blur(20px);
+  height: 150%; /*was 100*/
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+#bill-card {
+  display: none;
+}
+
+.new-line {
+  white-space: pre-wrap;
+}
 
