@@ -67,10 +67,6 @@ class BookForm extends Component {
     }
 }
 
-// BookForm = reduxForm({ // <----- THIS IS THE IMPORTANT PART!
-//     form: 'book',                           // a unique name for this form
-//     fields: ['title', 'author', 'genre'] // all the fields in your form
-//   })(BookForm);
 
 const mapStateToProps = ({ books }) => {
     //destructiure books and return an object where book is the key but books.select is the value 

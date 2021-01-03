@@ -12,7 +12,7 @@ function BookListItem({ book, deleteBook }) {
     return (
         <div>
             <Link to={`/books/${book.id}`}>
-            {book.title} 
+            {book.title}
             </Link>
             <button><FaRegTrashAlt onClick={submitDelete} style={{curser: "pointer"}}/></button>
         </div>
