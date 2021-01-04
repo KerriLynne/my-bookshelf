@@ -46,19 +46,13 @@ class BookForm extends Component {
                     <input 
                     ref={(input) => this.bookAuthor = input}
                     defaultValue={this.props.book && this.props.book.author}
-                    // onChange={e => this.setState({author: e.target.value})}
                     type="text" 
-                    // {...author}
-                    // value={this.props.book && this.props.book.author} 
                     /> 
                     Genre:{" "} 
                     <input 
                     ref={(input) => this.bookGenre = input}
                     defaultValue={this.props.book && this.props.book.genre}
-                    // onChange={e => this.setState({genre: e.target.value})}
                     type="text" 
-                    // {...genre}
-                    // value={this.props.book && this.props.book.genre} 
                     />     
                     <input type="submit" value={this.isAdding ? "Add" : "Update" } />
                 </form>
@@ -69,8 +63,6 @@ class BookForm extends Component {
 
 
 const mapStateToProps = ({ books }) => {
-    //destructiure books and return an object where book is the key but books.select is the value 
-    //(book show receoves a prop called books which will be equal to books.select and will be available to us as a prop)
     return {
         book: books.selected
     };

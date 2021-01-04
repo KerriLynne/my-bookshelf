@@ -56,7 +56,6 @@ export const showBookshelf = () => {
         fetch(`http://localhost:3001/bookshelves?include_books=true`)
             .then((res) => res.json())
             .then((bookshelves) => { 
-                // console.log("showbookshelf action called")
                 dispatch({ type: 'SHOW_BOOKSHELF', payload: bookshelves })
                 //dispatch will send to our reducer
         });
@@ -69,7 +68,6 @@ export const getBookshelfList = () => {
         fetch(`http://localhost:3001/bookshelves`)
             .then((res) => res.json())
             .then((bookshelves) => { 
-                // console.log("showbookshelf action called")
                 dispatch({ type: 'GET_BOOKSHELF_LIST', payload: bookshelves })
                 //dispatch will send to our reducer
         });

@@ -9,10 +9,7 @@ import { AiOutlineCheckCircle } from "react-icons/ai";
 import { Link } from 'react-router-dom'
 
 class BookShow extends React.Component {
-    // constructor() {
-    //     super();
-    //     this.props.showBook(this.props.match.params.id);
-    // }
+
     componentDidMount() {
         console.log("component did mount was called")
         this.props.showBook(this.props.match.params.id);

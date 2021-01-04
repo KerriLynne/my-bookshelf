@@ -47,10 +47,7 @@ class Bookshelf extends React.Component {
 
 
 const mapStateToProps = ({ books }) => {
-    //destructiure books and return an object where book is the key but books.all is the value 
-    //(book index receoves a prop called books which will be equal to books.all and will be available to us as a prop)
     return {
-        // books: books.all,
         bookshelves: books.bookshelves
     };
 };

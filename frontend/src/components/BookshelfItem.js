@@ -1,9 +1,7 @@
 import React from 'react'
-// import { FaRegTrashAlt } from "react-icons/fa";
-// import { deleteBook } from "../redux/actions/bookActions";
 import { connect } from "react-redux"
 import BookshelfBookItem from './BookshelfBookItem';
-// import { Link } from 'react-router-dom'
+
 
 function BookshelfItem( { bookshelf } ) {
 
