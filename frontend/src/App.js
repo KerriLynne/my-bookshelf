@@ -7,6 +7,7 @@ import BookForm from './components/BookForm'
 import Nav from './components/Nav'
 import BookShow from './components/BookShow'
 import Bookshelf from './components/Bookshelf'
+import IncrementClick from './components/IncrementClick'
 
 function App() {
   return (
@@ -23,8 +24,10 @@ function App() {
                 <Route exact path="/books/bookshelf" component={Bookshelf}/>
                 <Route path="/books/:id/edit" component={BookForm}/>
                 <Route path="/books/:id" component={BookShow}/>
+
               </Switch>
             </Router>
+              <IncrementClick />
             </div>
           </div>
       </div>
