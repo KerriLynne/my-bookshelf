@@ -12,25 +12,25 @@ class IncrementClick extends React.Component {
     }
 
     increment = () => {
-        // let newCount = this.state.count + 1
-        // this.setState({
-        //     count: newCount
-        // })
+        let newCount = this.state.count + 1
+        this.setState({
+            count: newCount
+        })
 
-        console.log('a');
+        // console.log('a');
 
-        fetch(`http://localhost:3001/booksfdjkdsjflkdsjfkldsjfs`)
-            .then(resp => {
-                if(resp.status !== 200) {
-                    throw new Error(resp.statusText);
-                }
-                console.log('b', resp)
-                return resp.json();
-            })
-            .then(data => console.log('c', data))
-            .catch(errors => console.log('d', errors))
+        // fetch(`http://localhost:3001/booksfdjkdsjflkdsjfkldsjfs`)
+        //     .then(resp => {
+        //         if(resp.status !== 200) {
+        //             throw new Error(resp.statusText);
+        //         }
+        //         console.log('b', resp)
+        //         return resp.json();
+        //     })
+        //     .then(data => console.log('c', data))
+        //     .catch(errors => console.log('d', errors))
 
-        console.log('e');
+        // console.log('e');
 
         // a, e, d
     }
@@ -38,13 +38,6 @@ class IncrementClick extends React.Component {
     
 
     render() {
-        // console.log(this.props)
-        // if (!this.props.bookshelves)
-        //     return (
-        //         <div>
-        //             <h1>Loading bookshelves</h1>
-        //         </div>
-        //     )
 
         return (
             <div>
