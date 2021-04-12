@@ -1,9 +1,6 @@
-//add function to get book by ID here?
 
-// import { showBookshelf } from "../redux/actions/bookActions";
 import React from "react";
-// import { connect } from "react-redux";
-// import BookshelfItem from "./BookshelfItem";
+
 
 class IncrementClick extends React.Component {
 
@@ -17,6 +14,8 @@ class IncrementClick extends React.Component {
             count: newCount
         })
 
+
+        // tested at end of review:
         // console.log('a');
 
         // fetch(`http://localhost:3001/booksfdjkdsjflkdsjfkldsjfs`)
@@ -33,6 +32,8 @@ class IncrementClick extends React.Component {
         // console.log('e');
 
         // a, e, d
+
+        // tested at end of review:
     }
 
     
@@ -48,15 +49,5 @@ class IncrementClick extends React.Component {
     }
 }
 
-
-
-
-
-
-// const mapStateToProps = ({ books }) => {
-//     return {
-//         bookshelves: books.bookshelves
-//     };
-// };
 
 export default (IncrementClick);

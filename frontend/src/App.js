@@ -7,7 +7,7 @@ import BookForm from './components/BookForm'
 import Nav from './components/Nav'
 import BookShow from './components/BookShow'
 import Bookshelf from './components/Bookshelf'
-import IncrementClick from './components/IncrementClick'
+// import IncrementClick from './components/IncrementClick'
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
 
               </Switch>
             </Router>
-              <IncrementClick />
+              {/* <IncrementClick /> */}
             </div>
           </div>
       </div>
