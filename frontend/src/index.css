@@ -58,7 +58,7 @@ body {
 	float:left;
 	display:block;
 	padding: 9px 10px;
-	background: rgba(255, 255, 255, 0.2);
+	background: rgba(0,0,0,.8);
 	background-image: none;
 	border: 0 none;
 	top:0px; 
