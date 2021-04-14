@@ -33,8 +33,9 @@ class BooksController < ApplicationController
 
     private
 
+    # added rating
     def book_params
-        params.require(:book).permit(:title, :author, :genre, :bookshelf_id)
+        params.require(:book).permit(:title, :author, :genre, :rating, :bookshelf_id)
     end
 
 
