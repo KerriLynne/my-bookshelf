@@ -48,7 +48,7 @@ class BookShow extends React.Component {
         return (
             <div>
             <h1 className="title">You Selected</h1>
-                <h4>Title:</h4>{this.props.book.title}  <h4>Author: </h4>{this.props.book.author}  <h4>Genre: </h4>{this.props.book.genre}
+                <h4>Title:</h4>{this.props.book.title}  <h4>Author: </h4>{this.props.book.author}  <h4>Genre: </h4>{this.props.book.genre} <h4>Rating: </h4>{this.props.book.rating}
                 <br></br>
                 <br></br>
 
