@@ -19,7 +19,8 @@ class BookForm extends Component {
         const values = {
             title: this.bookTitle.value,
             author: this.bookAuthor.value,
-            genre: this.bookGenre.value
+            genre: this.bookGenre.value,
+            rating: this.bookRating.value
         }
         if (this.isAdding) {
             this.props.createBook(values)
@@ -53,6 +54,14 @@ class BookForm extends Component {
                     ref={(input) => this.bookGenre = input}
                     defaultValue={this.props.book && this.props.book.genre}
                     type="text" 
+                    /> 
+                    <br></br>
+                    <br></br>
+                    Rating:{" "} 
+                    <input 
+                    ref={(input) => this.bookRating = input}
+                    defaultValue={this.props.book && this.props.book.rating}
+                    type="integer" 
                     />     
                     <input type="submit" value={this.isAdding ? "Add" : "Update" } />
                 </form>
