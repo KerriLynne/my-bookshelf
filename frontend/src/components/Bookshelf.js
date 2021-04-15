@@ -26,7 +26,7 @@ class Bookshelf extends React.Component {
 
         return (
             <div>
-                <h1 className="text-center title">Your Bookshelf</h1>
+                <h1 className="text-center title">Your Bookshelf</h1><br></br>
                 
                 <div class="row">
                 {this.props.bookshelves.map((bookshelf) => (
