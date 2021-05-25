@@ -6,10 +6,13 @@ import BookListItem from "./BookListItem";
 
 
 class BookIndex extends React.Component {
+    //in react when you want to show or do something when it loads
+    //the table arrived - ok now you are ready to set the table
     componentDidMount() {
+        //calling getBooks() function
         this.props.getBooks();
     }
-
+//using state so different things can be updated from different places
     state = {
         titleSearch: ""
     };
@@ -22,7 +25,7 @@ class BookIndex extends React.Component {
             book.title.toLowerCase().match(this.state.titleSearch.toLowerCase())
         )
     }
-
+//calls render, then component did mount and THEN it will re-render if needed
     render() {
         console.log(this.props.books)
         return (
@@ -40,6 +43,7 @@ class BookIndex extends React.Component {
     }
 }
 
+//now set as a prop
 const mapStateToProps = ({ books }) => {
     return {
         books: books.all,
