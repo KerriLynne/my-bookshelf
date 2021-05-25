@@ -46,6 +46,7 @@ class BookShow extends React.Component {
             )
         }
         return (
+            //jsx- lets you write html in javascript (syntax extension to JS)
             <div>
             <h1 className="title">You Selected</h1>
                 <h4>Title:</h4>{this.props.book.title}  <h4>Author: </h4>{this.props.book.author}  <h4>Genre: </h4>{this.props.book.genre} <h4>Rating: </h4>{this.props.book.rating}
@@ -74,7 +75,7 @@ class BookShow extends React.Component {
         )
     }
 }
-
+//whenever we want access to the state
 const mapStateToProps = ({ books }) => {
     //destructiure books and return an object where book is the key but books.select is the value 
     //(book show receoves a prop called books which will be equal to books.select and will be available to us as a prop)
